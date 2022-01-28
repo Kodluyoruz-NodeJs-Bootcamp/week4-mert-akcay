@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="/">
+            <strong><span>Gusto&RemoteTeam</span> & Patika</strong>
+        </a>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link <%= index == 'home' ? 'active' : '' %>" href="/">Home</a>
+                </li>
+                <% if(isAuth) { %>
+                <li class="nav-item">
+                    <a class="nav-link <%= index == 'users' ? 'active' : '' %>" href="/users">List Users</a>
+                </li>
+                <% } %>
+            </ul>
+
+            <% if(!isAuth) { %>
+            <div class="d-none d-lg-block">
+                <a href="/login">Sign-In</a>
+            </div>
+            <div style="padding-left:15px;" class="d-none d-lg-block">
+                <a href="/register">Sign-Up</a>
+            </div>
+            <% }else{ %>
+            <div style="padding-left:15px;" class="d-none d-lg-block">
+                <a href="/logout">Sign-Out</a>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</nav>
